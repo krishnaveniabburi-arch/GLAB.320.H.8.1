@@ -1,13 +1,9 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom"
 
 export default function Price (props) {
-  // Our api key from coinapi.io.
-  const apiKey = import.meta.env.VITE_COINAPI_KEY;
   // Grabbing the currency symbol from the URL Params.
-  const params = useParams()
-  const symbol = params.symbol
-  
+   const { symbol } = useParams();
 
   // State to hold the coin data.
   const [coin, setCoin] = useState("null");
@@ -15,7 +11,7 @@ export default function Price (props) {
   // Function to fetch coin data.
   const getCoin = async () => {
     try {
-      const url = `https://coinapi{symbol}/USD?apikey=${apiKey}`;
+      const url = `https://coinapi.io{symbol}/USD?apikey=${apiKey}`;
 
       const response = await fetch(url);
       const data = await response.json();
