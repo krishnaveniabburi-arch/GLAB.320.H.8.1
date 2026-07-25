@@ -1,6 +1,7 @@
-import { link} from react-router
+import React from "react";
+import { Link} from "react-router-dom";
 export default function Currencies (props) {
-  return <h1>This is the Currencies Component</h1>;
+  
   const currencies = [
     { name: "Bitcoin", symbol: "BTC" },
     { name: "Litecoin", symbol: "LTC" },
@@ -18,7 +19,7 @@ export default function Currencies (props) {
         const { name, symbol } = coin;
 
         return (
-          <Link to={`/price/${symbol}`}>
+          <Link to={`/price/${symbol}`} key={symbol}>
             <h2>{name}</h2>
           </Link>
         );
